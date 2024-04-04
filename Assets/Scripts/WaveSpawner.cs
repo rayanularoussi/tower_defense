@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class GameMaster : MonoBehaviour
+public class WaveSpawner : MonoBehaviour
 {
     public Transform enemyPrefab;
     public Transform spawnPoint;
@@ -24,13 +24,15 @@ public class GameMaster : MonoBehaviour
         }
 
         countdown -= Time.deltaTime;
+        countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
 
-        waveCountdownText.text = Mathf.Round(countdown).ToString();
+        waveCountdownText.text = string.Format("{0:00.00}", countdown);
     }
 
     IEnumerator SpawnWave()
     {
         waveNumber++;
+        PlayerStats.Rounds++;
         for(int i = 0; i < waveNumber; i++)
         {
             SpawnEnemy();
