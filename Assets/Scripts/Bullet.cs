@@ -52,6 +52,7 @@ public class Bullet : MonoBehaviour
         if(explosionRadius > 0)
         {
             Explode();
+            CameraShaker.Invoke();
         }
         else
         {
@@ -69,6 +70,7 @@ public class Bullet : MonoBehaviour
         {
             if(collider.tag == "Enemy")
             {
+                
                 Damage(collider.transform);
             }
         }

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CameraControlle : MonoBehaviour
 {
-    private bool doMovement = true;
 
     public float panSpeed = 30f;
 
@@ -23,10 +22,7 @@ public class CameraControlle : MonoBehaviour
             return;
         }
         
-        if(Input.GetKeyDown(KeyCode.Escape))
-            doMovement = !doMovement;
-        if(!doMovement)
-            return;
+        
         
         if(Input.GetKey("q") || Input.mousePosition.x <=panBorderThickness)
         {
